@@ -5,8 +5,6 @@ import TodoList from './list'
 
 export default function TodoApp() {
     const [todos, setTodos] = UseIdb('todos', [])
-    
-    
 
     const appendTodo = (text) => {
         let todoObj = { 
@@ -34,12 +32,6 @@ export default function TodoApp() {
                     return i
                 }))
             break;
-            // case "undone":
-            //     setTodos(todos.map(i => {
-            //         if(i.id === id) i.done = true
-            //         return i
-            //     }))
-            // break;
             default:
                 console.log("no action found")
                 break;
@@ -54,7 +46,7 @@ export default function TodoApp() {
             <TodoForm setter={(e, text)  => appendTodo(text)} />
             <TodoList list={todos} setter={reducer}/>
             <footer>
-                <span>total: {todos.length}</span>
+                <span>total: {todos ? todos.length : ''}</span>
                 <button onClick={() => setTodos([])}>Clear All</button>
             </footer>
         </div>

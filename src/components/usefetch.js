@@ -9,6 +9,7 @@ import { useEffect } from 'react'
     const fetchData = async () => {
         try {
             const resp = await fetch(props.url);
+            if(!resp.ok) throw new Error('Failed to fetch')
             const json = await resp.json();
             setData(json);
             setLoading(false)

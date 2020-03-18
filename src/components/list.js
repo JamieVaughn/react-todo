@@ -15,7 +15,7 @@ export default function TodoList(props) {
     return (
         <ul className='todo-items'>
             {
-                props.list.map(i => (
+                props.list ? props.list.map(i => (
                     <li key={i.id}>
                         <input
                         title='Mark Title'
@@ -34,7 +34,7 @@ export default function TodoList(props) {
                             X
                         </span>
                     </li>
-                ))
+                )): ''
             }
             <li className='empty-state'>No Todos Left!</li>
         </ul>

@@ -64,7 +64,8 @@ h1, h2 {
 }
 .todo-text {
 	border: none;
-	font-size: inherit
+	font-size: inherit;
+    width: 100%;
 }
 .done input {
 	text-decoration: line-through;
