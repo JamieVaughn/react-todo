@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UseIdb from './useidb'
 import TodoForm from './form'
 import TodoList from './list'
 
-export default function TodoApp() {
+export default function TodoApp(props) {
     const [todos, setTodos] = UseIdb('todos', [])
+
+    useEffect(() => {
+        if(!todos.length) setTodos(props.todos)
+    }, [])
 
     const appendTodo = (text) => {
         let todoObj = { 
@@ -38,7 +42,7 @@ export default function TodoApp() {
 
         }
     }
-
+    
     return (
         <div className='page-wrapper'>
             <h1 onClick={() => console.log(todos)}>React Todo App</h1>

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 
  function useFetch(props) {
-     console.log(props)
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -26,8 +25,7 @@ import { useEffect } from 'react'
     }
     useEffect(() => {
         fetchData()
-        console.log('state',data)
-    }, [props.url])
+    }, [])
 
     return { data, loading, error }
 }
