@@ -12,11 +12,14 @@ export default function TodoItem(props) {
             <input
             type='text'
             className='todo-text'
-            value={text}
+            value={props.todo.text}
             onChange={e=>setText(e.target.value)}
             onBlur={handleSubmit}
             />
-            <span className='timestamp'>timestamp</span>
+            <div className="footnotes">
+                {props.todo.category ? props.todo.category.map(c => <span key={c} className="category">{c}</span>) : ''}
+                <span className='timestamp'>{props.todo.done ? props.todo.doneOn : props.todo.createdOn}</span>
+            </div>
         </span>
     )
 }
