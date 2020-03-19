@@ -72,7 +72,7 @@ export default function TodoApp() {
     }
     const sortAZ = () => {
         let sorted = todos.sort((a,b) => {
-            return (a.text<b.text) ? -1 : (a.text > b.text) ? 1 : 0;
+            return (a.text<b.text) ? -1 : 1;
         })
         setTodos([...sorted])
     }
